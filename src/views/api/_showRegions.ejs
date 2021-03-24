@@ -1,9 +1,11 @@
 <% for(var i = 0; i < regions.length; i++) { %>
 <tr>
     <td><%= i + 1 %></td>
-    <td><%= regions[i].name_uz %></td>
-    <td><%= regions[i].name_oz %></td>
-    <td><%= regions[i].name_ru %></td>
+    <!-- <td> <a href="./get/districts/<%= regions[i].id %>"><%= regions[i].name_uz %></a> </td> -->
+    <td> <a href="/districts/list"><%= regions[i].name_uz %></a> </td>
+    <td> <a href="./quarters/<%= regions[i].id %>"><%= regions[i].id %></a> </td>
+    <td>jadvalRegion</td>
+    <!-- <td><%= regions[i].id %></td> -->
     <td>
         <a href="#reportData_<%= regions[i]._id%>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
                 title="Edit">&#xE254;</i></a>

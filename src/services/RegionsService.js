@@ -17,5 +17,14 @@ class RegionsService {
                 res.send(err);
             });
     };
+    IndexDistricts = async (req, res) => {
+        axios.get("http://localhost:3003/districts/list", { /** params: { id: req.query.id } */ })
+            .then(function (data) {
+                    res.render("district", { district: data.data });
+                })
+            .catch(err => {
+                res.send(err);
+            });
+    };
 }
 export default RegionsService;

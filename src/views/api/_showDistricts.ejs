@@ -1,0 +1,16 @@
+<% for(var i = 0; i < district.length; i++) { %>
+<tr>
+    <td><%= i + 1 %></td>
+    <td><%= district[i].name_uz %></td>
+    <td><%= district[i].name_oz %></td>
+    <td>Jadval district</td>
+    <td>
+        <a href="#" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
+                title="Edit">&#xE254;</i></a>
+        <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
+                data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+    </td>
+</tr>
+
+
+<% } %>
