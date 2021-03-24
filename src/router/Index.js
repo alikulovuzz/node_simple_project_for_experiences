@@ -49,7 +49,8 @@ const createRoutes = (app) => {
         res.send("Hello, World!");
     });
 
-    app.get("/", RegionService.IndexService);
+    app.get("/regions", RegionService.IndexService);
+    app.get("/", RegionService.indexFirstpage);
     app.get("/districts", RegionService.IndexDistricts);
     
     //CRUD

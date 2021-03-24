@@ -8,6 +8,9 @@ class RegionsService {
      * @param {*} req 
      * @param {*} res 
      */
+    indexFirstpage=async(req,res)=>{
+        res.render("index", {  });
+    }
     IndexService = async (req, res) => {
         axios.get("http://localhost:3003/regions/list", { /** params: { id: req.query.id } */ })
             .then(function (data) {
