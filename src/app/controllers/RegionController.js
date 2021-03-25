@@ -228,17 +228,15 @@ class RegionController {
 
     updateData = async (req, res) => {
         const id = req.params.id;
-
-        QuertertModel.updateMany({
+        console.log(id);
+        console.log(req.body.name_uz);
+        RegionModel.updateMany({
             "_id": id
-        },
-            {
-                "$push": {
-                    "name_uz": req.body.name_uz,
-                    "name_oz": req.body.name_oz,
-                    "name_ru": req.body.name_ru,
-                }
-            }, { new: true, })
+        },{
+            "name_oz":req.body.name_oz,
+            "name_uz":req.body.name_uz,
+            "name_ru":req.body.name_ru
+        })
             .then((msg) => {
                 if (!msg) {
                     // after all send a 204 - no content but accepted response
@@ -254,6 +252,7 @@ class RegionController {
                 }
                 // after all send a 204 - no content but accepted response
                 // Return response
+                // console.log();
                 res.redirect("/data/regions");
             })
             .catch((err) => {
@@ -279,7 +278,7 @@ class RegionController {
 
      deleteData = async (req, res) => {
         const id = req.params.id;
-
+        console.log(id);
         RegionModel.findOneAndRemove({"_id": id}, { new: true, })
             .then((msg) => {
                 if (!msg) {
@@ -296,7 +295,7 @@ class RegionController {
                 }
                 // after all send a 204 - no content but accepted response
                 // Return response
-                res.redirect("/data/regions");
+                res.redirect("/");
             })
             .catch((err) => {
                 if (err) {

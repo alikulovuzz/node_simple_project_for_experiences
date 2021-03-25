@@ -3,14 +3,13 @@
     <td><%= i + 1 %></td>
     <!-- <td> <a href="./get/districts/<%= regions[i].id %>"><%= regions[i].name_uz %></a> </td> -->
     <td> <a href="/districts"><%= regions[i].name_uz %></a> </td>
-    <td> <a href="./quarters/<%= regions[i].id %>"><%= regions[i].id %></a> </td>
-    <td>jadvalRegion</td>
+    <td> <a href="/regions/delete/<%= regions[i]._id %>"><%= regions[i].id %></a> </td>
+    <td>Azamat</td>
     <!-- <td><%= regions[i].id %></td> -->
     <td>
         <a href="#reportData_<%= regions[i]._id%>" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"
                 title="Edit">&#xE254;</i></a>
-        <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+        <a href="/regions/delete/<%= regions[i]._id %>"><i class="material-icons"  title="Delete">&#xE872;</i></a>
     </td>
 </tr>
 
@@ -55,36 +54,10 @@
     </div>
 </div>
 <!-- Delete model -->
-<div id="deleteEmployeeModal /region/update?id=<%= regions[i]._id%>" class="modal fade">
+<div id="deleteEmployeeModal_<%= regions[i]._id%>" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form method="POST" action="/regions/delete/<%= regions[i]._id%>">
-                <!-- <div class="modal-header">
-                    <h4 class="modal-title"><%= regions[i].name_uz %></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Viloyat nomi * (O'zbekcha)</label>
-                        <input type="text" class="form-control" name="name_uz" value="<%= regions[i].name_uz %>" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Viloyat nomi * (Ўзбекча)</label>
-                        <input type="text" class="form-control" name="name_oz" value="<%= regions[i].name_oz %>"  required>
-                    </div>
-                    <div class="form-group">
-                        <label>Viloyat nomi * (русский)</label>
-                        <input type="text" class="form-control" name="name_ru" value="<%= regions[i].name_ru %>"  required>
-                    </div>
-                     <div class="form-group">
-                        <label>Viloyat nomi * (O'zbekcha)</label>
-                        <textarea class="form-control" required></textarea>
-                    </div> --> 
-                    <div class="form-group">
-                        <label>Ismingiz *</label>
-                        <input type="text" class="form-control" name="added_by" placeholder="Anvarjon Shodiyev" required>
-                    </div>
-                </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Bekor qilish">
                     <input type="submit" class="btn btn-success" value="Yuborish">

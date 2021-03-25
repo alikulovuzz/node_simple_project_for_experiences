@@ -62,7 +62,7 @@ const createRoutes = (app) => {
     app.get("/get/districts/:id", RegionController.IndexDistrictsbyID);
     app.get("/get/districts/quarters/:id", RegionController.IndexQuarters);
     app.post("/regions/update/:id", RegionController.updateData);
-    app.post("/regions/update/:id", RegionController.deleteData);
+    app.get("/regions/delete/:id", RegionController.deleteData);
 
     app.get("/data/regions", RegionService.IndexService);
     app.get("/data/register", RegionService.IndexService);
