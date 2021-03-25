@@ -29,5 +29,14 @@ class RegionsService {
                 res.send(err);
             });
     };
+    IndexQuarters = async (req, res) => {
+        axios.get("http://localhost:3003/quarters/list", { /** params: { id: req.query.id } */ })
+            .then(function (data) {
+                    res.render("quarters", { regions: data.data });
+                })
+            .catch(err => {
+                res.send(err);
+            });
+    };
 }
 export default RegionsService;

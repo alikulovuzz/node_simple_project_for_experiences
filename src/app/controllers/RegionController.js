@@ -140,6 +140,32 @@ class RegionController {
                 // });
             });
     };
+    IndexQuarters = async (req, res) => {
+
+        QuertertModel.find({
+            // is_active: isActive,
+        })
+            .sort({ name_uz: 1 })
+            .limit(100)
+            .exec(function (err, data) {
+                if (err) {
+                    return res.status(404).json({
+                        status: "Error",
+                        name_ru: 10004,
+                        message: {
+                            en: "No information found!",
+                            uz: "Маълумот топилмади!",
+                            ru: "Данные не найдены!",
+                        },
+                    });
+                }
+                return res.send(data);
+                // return res.json({
+                //     status: "Success",
+                //     data: data
+                // });
+            });
+    };
     IndexDistrictsbyID = async (req, res) => {
         DistrictModel.aggregate([
             {$match: { region_id: {$eq: req.params.id } } }
@@ -166,32 +192,32 @@ class RegionController {
                 // });
             });
     };
-    IndexQuarters = async (req, res) => {
-        QuertertModel.aggregate([
-            {$match: { district_id: {$eq: req.params.id } } }
-        ])
-            .sort({ name_uz: 1 })
-            .exec(function (err, data) {
-                if (err) {
-                    return res.status(404).json({
-                        status: "Error",
-                        name_ru: 10004,
-                        message: {
-                            en: "No information found!",
-                            uz: "Маълумот топилмади!",
-                            ru: "Данные не найдены!",
-                        },
-                    });
-                }
-                return res.render("regions", { regions: data });
-                //return res.send(data);
+    // IndexQuarters = async (req, res) => {
+    //     QuertertModel.aggregate([
+    //         {$match: { district_id: {$eq: req.params.id } } }
+    //     ])
+    //         .sort({ name_uz: 1 })
+    //         .exec(function (err, data) {
+    //             if (err) {
+    //                 return res.status(404).json({
+    //                     status: "Error",
+    //                     name_ru: 10004,
+    //                     message: {
+    //                         en: "No information found!",
+    //                         uz: "Маълумот топилмади!",
+    //                         ru: "Данные не найдены!",
+    //                     },
+    //                 });
+    //             }
+    //             return res.render("regions", { regions: data });
+    //             //return res.send(data);
 
-                // return res.json({
-                //     status: "Success",
-                //     data: data
-                // });
-            });
-    };
+    //             // return res.json({
+    //             //     status: "Success",
+    //             //     data: data
+    //             // });
+    //         });
+    // };
 
 
     /**

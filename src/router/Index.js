@@ -49,14 +49,16 @@ const createRoutes = (app) => {
         res.send("Hello, World!");
     });
 
-    app.get("/regions", RegionService.IndexService);
-    app.get("/", RegionService.indexFirstpage);
+    app.get("/", RegionService.IndexService);
+    app.get("/rerere", RegionService.indexFirstpage);
     app.get("/districts", RegionService.IndexDistricts);
+    app.get("/quarters", RegionService.IndexQuarters);
     
     //CRUD
     app.post("/regions/add", RegionController.createData);
     app.get("/regions/list", RegionController.IndexData);
     app.get("/districts/list", RegionController.IndexDistricts);
+    app.get("/quarters/list", RegionController.IndexQuarters);
     app.get("/get/districts/:id", RegionController.IndexDistrictsbyID);
     app.get("/get/districts/quarters/:id", RegionController.IndexQuarters);
     app.post("/regions/update/:id", RegionController.updateData);
