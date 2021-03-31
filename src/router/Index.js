@@ -1,7 +1,6 @@
 import bodyParser from "body-parser";
-import express from "express";
+// import express from "express";
 import cors from "cors";
-// import multer from "multer";
 
 import {
     RegCtrl
@@ -30,13 +29,6 @@ const createRoutes = (app) => {
     //enable pre-flight
     app.options("*", cors(options));
 
-    //Load files via URL
-    // app.use( express.static( '/uploads' ) );
-    //app.use(express.static(__dirname + '/public'));
-    // app.use('/images', express.static(__dirname + '/public'));
-
-    //console.log(path.join(__dirname, 'public'))
-    // parse application/json
     app.use(bodyParser.json());
     // parse application/x-www-form-urlencoded
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -67,13 +59,5 @@ const createRoutes = (app) => {
     app.get("/data/regions", RegionService.IndexService);
     app.get("/data/register", RegionService.IndexService);
     app.get("/data/register", RegionService.IndexService);
-    // app.post("/user/login", loginValidation, AuthController.login);
-    // app.get("/user/me", RegionController.getMe);
-    // app.get("/user/all", RegionController.getAll);
-    // app.put("/user/update/:id", RegionController.updateMe);
-    // app.put("/user/change-password/:id", PassChangeValidation, RegionController.updatePassword);
-    // app.delete("/user/rm", AuthController.rm);
-    // app.delete("/user/delete/:id", RegionController.deleteData);
-    // app.post("/admin/user/add", RegValidation, AuthController.adminAddUser);
 };
 export default createRoutes;

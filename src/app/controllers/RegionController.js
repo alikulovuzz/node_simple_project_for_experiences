@@ -1,4 +1,4 @@
- //import { Request, Response } from "express";
+//  import { Request, Response } from "express";
 // import mongoose from "mongoose";
 import { validationResult } from "express-validator";
 import { DistrictModel, RegionModel,QuertertModel } from "../models/Index";
@@ -228,8 +228,8 @@ class RegionController {
 
     updateData = async (req, res) => {
         const id = req.params.id;
-        console.log(id);
-        console.log(req.body.name_uz);
+        // console.log(id);
+        // console.log(req.body.name_uz);
         RegionModel.updateMany({
             "_id": id
         },{
@@ -311,6 +311,6 @@ class RegionController {
                     });
                 }
             });
-    };
+    };    
 }
 export default RegionController;

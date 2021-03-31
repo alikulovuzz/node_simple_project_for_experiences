@@ -26,7 +26,6 @@ app.set('view engine', 'ejs');
 
 // console.log(path.join(__dirname,'public'))
 const PORT = process.env.PORT || 3003;
-// app.listen(PORT, () => { console.log(`Server is running on http://localhost:${PORT}`) });
 http.listen(PORT, () => {
     console.log(`Server: http://localhost:${PORT} , ${process.env.PORT}`);
 });
