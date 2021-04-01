@@ -31,7 +31,7 @@ class RegionController {
             });
         }
         try {
-            const dataAdd = new RegionModel(data);
+            const dataAdd = new RegionModel(data);            
             await dataAdd
                 .save()
                 .then(async (obj) => {
@@ -230,6 +230,8 @@ class RegionController {
         const id = req.params.id;
         // console.log(id);
         // console.log(req.body.name_uz);
+        // const idgenerator=RegionModel.find().sort({"id":-1}).limit(1);
+        //     console.log(idgenerator);
         RegionModel.updateMany({
             "_id": id
         },{
